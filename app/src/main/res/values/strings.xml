@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Luma Assistant</string>
+    <string name="accessibility_service_description">Lets Luma read on-screen buttons/text and tap or type on your behalf when you ask it to - for example "open WhatsApp and type hello" or announcing an incoming caller\'s name. It only acts when you give a voice or text command; it does not run any actions on its own.</string>
+</resources>
