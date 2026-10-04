@@ -26,12 +26,12 @@ class AiClient(private val provider: AiProvider, private val apiKey: String) {
                     AiProvider.OPENROUTER -> sendOpenAiCompatible(
                         history,
                         url = "https://openrouter.ai/api/v1/chat/completions",
-                        model = "meta-llama/llama-3.1-8b-instruct:free"
+                        model = "openrouter/free"
                     )
                     AiProvider.GROQ -> sendOpenAiCompatible(
                         history,
                         url = "https://api.groq.com/openai/v1/chat/completions",
-                        model = "llama-3.1-8b-instant"
+                        model = "llama-3.3-70b-versatile"
                     )
                 }
             } catch (e: Exception) {
@@ -49,7 +49,7 @@ class AiClient(private val provider: AiProvider, private val apiKey: String) {
             })
         }
         val body = JSONObject().put("contents", contents)
-        val url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent"
+        val url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent"
 
         val request = Request.Builder()
             .url(url)
@@ -75,7 +75,7 @@ class AiClient(private val provider: AiProvider, private val apiKey: String) {
             messages.put(JSONObject().apply { put("role", role); put("content", text) })
         }
         val body = JSONObject().apply {
-            put("model", "claude-sonnet-4-6")
+            put("model", "claude-sonnet-5")
             put("max_tokens", 1000)
             put("messages", messages)
         }
